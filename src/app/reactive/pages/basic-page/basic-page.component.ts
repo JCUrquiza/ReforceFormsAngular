@@ -19,6 +19,11 @@ export class BasicPageComponent {
 
   onSave(): void {
 
+    if ( this.myForm.invalid ) {
+      this.myForm.markAllAsTouched();
+      return;
+    }
+
     console.log(this.myForm.value);
   }
 
