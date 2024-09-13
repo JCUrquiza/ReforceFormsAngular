@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { ValidatorsService } from '../../../shared/service/validators.service';
 import { EmailValidator } from '../../../shared/validators/email-validator.service';
+import { cantBeStrider } from '../../../shared/validators/validators';
 
 @Component({
   templateUrl: './register-page.component.html',
@@ -11,16 +12,12 @@ import { EmailValidator } from '../../../shared/validators/email-validator.servi
 export class RegisterPageComponent {
 
   public myForm: FormGroup = this.fb.group({
-    name: ['', [ Validators.required, Validators.pattern( this.validatorsService.firstNameAndLastnamePattern )  ]],
+    name: ['', [ Validators.required ]],
     // email: ['', [ Validators.required, Validators.pattern( this.validatorsService.emailPattern )], [ new EmailValidator() ]],
-    email: ['', [ Validators.required, Validators.pattern( this.validatorsService.emailPattern )], [ this.emailValidator ]],
-    username: ['', [ Validators.required, this.validatorsService.cantBeStrider ]],
+    email: ['', [ Validators.required ]],
+    username: ['', [ Validators.required, cantBeStrider ]],
     password: ['', [ Validators.required, Validators.minLength(6) ]],
-    password2: ['', [ Validators.required ]],
-  }, {
-    validators: [
-      this.validatorsService.isFieldOneEqualFieldTwo('password','password2')
-    ]
+    password2: ['', [ Validators.required ]]
   });
 
 
