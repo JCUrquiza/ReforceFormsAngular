@@ -5,7 +5,6 @@ import { delay, Observable, of } from 'rxjs';
 @Injectable({ providedIn: 'root' })
 export class EmailValidator implements AsyncValidator {
 
-
   validate(control: AbstractControl ): Observable<ValidationErrors | null> {
 
     const email = control.value;
@@ -32,8 +31,6 @@ export class EmailValidator implements AsyncValidator {
 
   }
 
-
-
   // validate(control: AbstractControl ): Observable<ValidationErrors | null> {
 
   //   const email = control.value;
@@ -49,7 +46,6 @@ export class EmailValidator implements AsyncValidator {
 
 
 }
-
 
 // return this.http.get<any[]>(`http://localhost:3000/users?q=${ email }`)
 // .pipe(
